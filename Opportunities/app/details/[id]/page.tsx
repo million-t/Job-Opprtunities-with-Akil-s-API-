@@ -15,6 +15,15 @@ import location from '../../../images/location.png';
 import play from '../../../images/play.png';
 import Tag from '@/components/tagChip';
 
+const options: Intl.DateTimeFormatOptions = { 
+    year: 'numeric', 
+    month: 'short', 
+    day: '2-digit' 
+};
+
+
+
+
 
 
 export default function DetailsPage() {
@@ -91,7 +100,7 @@ export default function DetailsPage() {
                     </div>
                     <div className='flex-col'>
                         <p className='text-about-gray'>Posted On</p>
-                        <p className='font-semibold'>{currentOpportunity.datePosted}</p>
+                        <p className='font-semibold'>{(new Date(currentOpportunity.datePosted)).toLocaleDateString('en-US', options)}</p>
                     </div>
                 </div>
                 <div className='flex space-x-4 items-center'>
@@ -100,7 +109,7 @@ export default function DetailsPage() {
                     </div>
                     <div className='flex-col'>
                         <p className='text-about-gray'>Deadline</p>
-                        <p className='font-semibold'>{currentOpportunity.deadline}</p>
+                        <p className='font-semibold'>{(new Date(currentOpportunity.deadline)).toLocaleDateString('en-US', options)}</p>
                     </div>
                 </div>
                 <div className='flex space-x-4 items-center'>
@@ -118,7 +127,7 @@ export default function DetailsPage() {
                     </div>
                     <div className='flex-col'>
                         <p className='text-about-gray'>Start Date</p>
-                        <p className='font-semibold'>{currentOpportunity.startDate}</p>
+                        <p className='font-semibold'>{ (new Date(currentOpportunity.startDate)).toLocaleDateString('en-US', options) }</p>
                     </div>
                 </div>
                 <div className='flex space-x-4 items-center'>
@@ -127,7 +136,7 @@ export default function DetailsPage() {
                     </div>
                     <div className='flex-col'>
                         <p className='text-about-gray'>End Date</p>
-                        <p className='font-semibold'>{currentOpportunity.endDate}</p>
+                        <p className='font-semibold'>{(new Date(currentOpportunity.endDate)).toLocaleDateString('en-US', options)}</p>
                     </div>
                 </div>
 
